@@ -21,27 +21,27 @@ public class Main {
 //        myLadyBird2.feed();
 
 //        OAW:
-        List<Flying> animals1 = new ArrayList<>(Arrays.asList(
+        List<Flying> flyingAnimals = new ArrayList<>(Arrays.asList(
                 new Bird("AAA", true),
                 new Bird("BBB", false),
                 new LadyBird("XXX", true),
                 new LadyBird("YYY", false)
         ));
-        for (Flying animal : animals1) {
+        for (Flying animal : flyingAnimals) {
             animal.fly();
         }
-        List<Feeding> animals2 = new ArrayList<>(Arrays.asList(
+        List<Feeding> feedingAnimals = new ArrayList<>(Arrays.asList(
                 new Bird("AAA", true),
                 new Bird("BBB", false),
                 new LadyBird("XXX", true),
                 new LadyBird("YYY", false)
         ));
-        for (Feeding animal : animals2) {
+        for (Feeding animal : feedingAnimals) {
             animal.feed();
         }
 
 //        OAW:
-//        List<Object> animals = new ArrayList<>(Arrays.asList(
+//        List<Object> objectAnimals = new ArrayList<>(Arrays.asList(
 //                new Bird("AAA", true),
 //                new Bird("BBB", false),
 //                new LadyBird("XXX", true),
@@ -56,5 +56,40 @@ public class Main {
 //            }
 //        }
 
+        //create and fill non-generic ArrayList in one line:
+        List myNonGenAL = new ArrayList(Arrays.asList(
+                new Bird("AAA", true),
+                new Bird("BBB", false),
+                new Bird("CCC", false),
+                new LadyBird("XXX", true),
+                new LadyBird("YYY", false),
+                new LadyBird("ZZZ", false)
+        ));
+//        oaw:
+//        List myNonGenAL = List.of(
+//                new Bird("AAA", true),
+//                new Bird("BBB", false),
+//                new Bird("CCC", false),
+//                new LadyBird("XXX", true),
+//                new LadyBird("YYY", false),
+//                new LadyBird("ZZZ", false)
+//        );
+
+        //sab. with generic ArrayList with <Speaking type> interface:
+        List<Speaking> speakingAnimals = new ArrayList<>(Arrays.asList(
+                new Bird("AAA", true),
+                new Bird("BBB", false),
+                new Bird("CCC", false),
+                new LadyBird("XXX", true),
+                new LadyBird("YYY", false),
+                new LadyBird("ZZZ", false)
+        ));
+
+        UncleBen myUncleBen = new UncleBen();
+        myUncleBen.feedBirds(myNonGenAL);
+
+        WildAnimalList<Wolf> wolfs = new WildAnimalList<>();
+        Wolf myWolf = new Wolf();
+        wolfs.add(myWolf);
     }
 }
